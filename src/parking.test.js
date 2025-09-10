@@ -37,7 +37,17 @@ describe('parking fee', () => {
   const result = calculateFee(entrada, salida);
 
   expect(result.total).toBe(12);
-});
+  });
+
+  it('debería aplicar tope de 50 en un mismo día (10:00 → 20:30)', () => {
+  const entrada = new Date('2000-01-01T10:00:00');
+  const salida  = new Date('2000-01-01T20:30:00');
+
+  const result = calculateFee(entrada, salida);
+
+  expect(result.total).toBe(50);
+  });
+
 
 
 });

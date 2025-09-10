@@ -95,12 +95,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "36b6730cb69e96910393e70661ad154c2ed3826e",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T03:25:54.000Z",
       "message": "feat: caclula tarifa de dos dias diferentes",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/36b6730cb69e96910393e70661ad154c2ed3826e"
     },
     "stats": {
       "total": 112,
@@ -110,6 +110,25 @@
     },
     "coverage": 73.44,
     "test_count": 5,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T03:34:10.000Z",
+      "message": "feat: se implemento el tope diario de 50 Bs",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 37,
+      "additions": 23,
+      "deletions": 14,
+      "date": "2025-09-10"
+    },
+    "coverage": 73.02,
+    "test_count": 6,
     "failed_tests": 0,
     "conclusion": "success"
   }

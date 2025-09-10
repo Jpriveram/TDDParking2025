@@ -1,22 +1,18 @@
 const DAY_RATE = 10;
 const NIGHT_RATE = 6;
-
-function isNight(date) {
-  const h = date.getHours();
-  return h >= 22 || h < 6;
-}
+const DAILY_CAP = 50;
 
 function diffInHours(start, end) {
   const ms = end - start;
   return ms / (1000 * 60 * 60);
 }
 
-function calculateSameDayFee(start, end) {
-  const dayStart = new Date(start);
-  dayStart.setHours(0, 0, 0, 0);
-  const dayEnd = new Date(start);
-  dayEnd.setHours(23, 59, 59, 999);
+function isNight(date) {
+  const h = date.getHours();
+  return h >= 22 || h < 6;
+}
 
+function calculateSameDaySubtotal(start, end) {
   const sixAM = new Date(start);
   sixAM.setHours(6, 0, 0, 0);
 
@@ -50,7 +46,7 @@ function calculateSameDayFee(start, end) {
     return total;
   }
 
-  // Si cruza 22:00 (día → noche dentro del mismo día)
+  // Cruza 22:00 → día a noche
   if (start >= sixAM && start < tenPM && end > tenPM) {
     const hDia = diffInHours(start, tenPM);
     total += Math.ceil(hDia) * DAY_RATE;
@@ -87,18 +83,21 @@ function calculateFee(entrada, salida) {
     entrada.getDate() === salida.getDate();
 
   if (sameDay) {
-    total = calculateSameDayFee(entrada, salida);
+    const subtotal = calculateSameDaySubtotal(entrada, salida);
+    total = Math.min(subtotal, DAILY_CAP); 
     return { total };
   }
 
   let cursor = new Date(entrada);
+
   while (cursor < salida) {
     const endOfDay = new Date(cursor);
     endOfDay.setHours(23, 59, 59, 999);
 
     const segmentEnd = (salida <= endOfDay) ? salida : endOfDay;
 
-    total += calculateSameDayFee(cursor, segmentEnd);
+    const subtotal = calculateSameDaySubtotal(cursor, segmentEnd);
+    total += Math.min(subtotal, DAILY_CAP); 
 
     const nextDay = new Date(cursor);
     nextDay.setDate(cursor.getDate() + 1);
