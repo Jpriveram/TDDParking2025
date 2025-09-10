@@ -38,12 +38,12 @@
     "conclusion": "failure"
   },
   {
-    "sha": "HEAD",
+    "sha": "45cbc9809602126a3b91e15e2a8e9afb28edf768",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T02:24:13.000Z",
       "message": "feat: calcula tarifa nocturna",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/45cbc9809602126a3b91e15e2a8e9afb28edf768"
     },
     "stats": {
       "total": 37,
@@ -53,6 +53,25 @@
     },
     "coverage": 100,
     "test_count": 2,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T02:35:27.000Z",
+      "message": "feat: se agrego formateo a dos decimales y con Bs",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 24,
+      "additions": 15,
+      "deletions": 9,
+      "date": "2025-09-10"
+    },
+    "coverage": 100,
+    "test_count": 3,
     "failed_tests": 0,
     "conclusion": "success"
   }

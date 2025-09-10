@@ -1,10 +1,7 @@
 Requerimientos de Usuario: Parqueo
 El usuario debe ver un total de Bs 10.00 al calcular exactamente una hora diurna.
-El usuario debe ver un total de Bs 30.00 al calcular 2h 1m diurnos (redondeo a 3h).
-El sistema debe mostrar el monto siempre con dos decimales y prefijo “Bs”.
-El usuario debe ver un total de Bs 6.00 al calcular horario de 22:00 a 23:00.
 El usuario debe ver un total de Bs 6.00 al calcular exactamente una hora nocturna.
-El usuario debe ver un total de Bs 6.00 al calcular menos de una hora nocturna (redondeo a 1h).
+El sistema debe mostrar el monto siempre con dos decimales y prefijo “Bs”.
 El usuario debe ver un total correcto cuando combina horas diurnas y nocturnas en un mismo día.
 El usuario debe ver un total correcto cuando la estadía cruza medianoche (dos días).
 El sistema debe aplicar tope máximo de Bs 50 en un mismo día cuando el cálculo exceda ese monto.

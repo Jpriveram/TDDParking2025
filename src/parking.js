@@ -5,8 +5,12 @@ function isNight(date) {
   const h = date.getHours();
   return h >= 22 || h < 6;
 }
+function formatBs(amount) {
+  const n = Number(amount);           
+  return `Bs ${n.toFixed(2)}`;
+}
 
-export function calculateFee(entrada, salida) {
+function calculateFee(entrada, salida) {
   const ms = salida - entrada;
   const horas = ms / (1000 * 60 * 60);
   const horasCobradas = Math.ceil(horas);
@@ -17,4 +21,4 @@ export function calculateFee(entrada, salida) {
   return { total: horasCobradas * rate };
 }
 
-export default calculateFee;
+export  {calculateFee,formatBs};

@@ -1,4 +1,4 @@
-import { calculateFee } from './parking.js';
+import { calculateFee, formatBs } from './parking.js';
 
 const entradaEl = document.querySelector('#entrada');
 const salidaEl  = document.querySelector('#salida');
@@ -13,7 +13,7 @@ calcular?.addEventListener('click', (e) => {
   const salida  = new Date(salidaEl.value);
 
   const { total } = calculateFee(entrada, salida);
-  resultEl.textContent = String(total);
+  resultEl.textContent = formatBs(total); // ← usa el formato del slice
 });
 
 limpiar?.addEventListener('click', (e) => {

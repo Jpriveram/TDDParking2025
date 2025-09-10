@@ -1,4 +1,4 @@
-import  {calculateFee}  from './parking.js';
+import  {calculateFee,formatBs}  from './parking.js';
 
 describe('parking fee', () => {
   it('debería devolver 10 cuando la entrada es 10:00 y la salida 11:00', () => {
@@ -17,6 +17,11 @@ describe('parking fee', () => {
 
     expect(result.total).toBe(6);
   });
+
+  it('debería formatear 10 como "Bs 10.00"', () => {
+  const texto = formatBs(10);
+  expect(texto).toBe('Bs 10.00');
+});
 
  
 
