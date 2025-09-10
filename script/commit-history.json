@@ -19,12 +19,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "af140315fe578d0e702a0d6642aea0f638c80b6d",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T02:08:35.000Z",
       "message": "feat: calcula precio de 10bs con una hora de uso deparqueo diurno",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/af140315fe578d0e702a0d6642aea0f638c80b6d"
     },
     "stats": {
       "total": 90,
@@ -36,5 +36,24 @@
     "test_count": 1,
     "failed_tests": 1,
     "conclusion": "failure"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T02:24:13.000Z",
+      "message": "feat: calcula tarifa nocturna",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 37,
+      "additions": 29,
+      "deletions": 8,
+      "date": "2025-09-10"
+    },
+    "coverage": 100,
+    "test_count": 2,
+    "failed_tests": 0,
+    "conclusion": "success"
   }
 ]
