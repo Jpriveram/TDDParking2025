@@ -30,7 +30,14 @@ describe('parking fee', () => {
   expect(result.total).toBe(16);
   });
 
+  it('debería devolver 12 cuando cruza medianoche: 23:30 → 00:30', () => {
+  const entrada = new Date('2000-01-01T23:30:00');
+  const salida  = new Date('2000-01-02T00:30:00');
 
- 
+  const result = calculateFee(entrada, salida);
+
+  expect(result.total).toBe(12);
+});
+
 
 });

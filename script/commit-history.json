@@ -76,12 +76,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "2229b3d531c302f50ad142620cd5bc59409fd21c",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T03:05:27.000Z",
       "message": "feat: calcula tarifa con combinacion de horas nocturna y diurna",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/2229b3d531c302f50ad142620cd5bc59409fd21c"
     },
     "stats": {
       "total": 58,
@@ -91,6 +91,25 @@
     },
     "coverage": 96.15,
     "test_count": 4,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T03:25:54.000Z",
+      "message": "feat: caclula tarifa de dos dias diferentes",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 112,
+      "additions": 92,
+      "deletions": 20,
+      "date": "2025-09-10"
+    },
+    "coverage": 73.44,
+    "test_count": 5,
     "failed_tests": 0,
     "conclusion": "success"
   }
