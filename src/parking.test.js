@@ -78,6 +78,14 @@ it('debería devolver 80 cuando se marca ticket perdido (ignora horas)', () => {
   expect(result.total).toBe(256);
   });
 
+  it('debería lanzar error cuando la salida es anterior a la entrada', () => {
+    const entrada = new Date('2000-01-01T12:00:00');
+    const salida  = new Date('2000-01-01T11:00:00');
+
+    expect(() => calculateFee(entrada, salida)).toThrow(
+      'La hora de salida no puede ser anterior a la de entrada'
+    );
+  });
 
 
 });

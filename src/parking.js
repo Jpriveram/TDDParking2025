@@ -66,6 +66,10 @@ function calculateSameDaySubtotal(start, end) {
 function calculateFee(entrada, salida, options = {}) {
   const { lostTicket = false } = options;
 
+  if (salida < entrada) {
+    throw new Error('La hora de salida no puede ser anterior a la de entrada');
+  }
+
   if (lostTicket) {
     return { total: 80, breakdown: [] };
   }

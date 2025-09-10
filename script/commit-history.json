@@ -152,12 +152,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "90015bd3cf98c7527bddf108964de8ba23c1c9fd",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T04:20:42.000Z",
       "message": "feat: muestar el desglose completo",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/90015bd3cf98c7527bddf108964de8ba23c1c9fd"
     },
     "stats": {
       "total": 91,
@@ -167,6 +167,25 @@
     },
     "coverage": 90.79,
     "test_count": 9,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T21:55:47.000Z",
+      "message": "feat: muestra mensaje de error al ingresar una hora de salida anterior a la de la entrada",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 70,
+      "additions": 40,
+      "deletions": 30,
+      "date": "2025-09-10"
+    },
+    "coverage": 91.03,
+    "test_count": 10,
     "failed_tests": 0,
     "conclusion": "success"
   }
