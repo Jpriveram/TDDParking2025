@@ -57,12 +57,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "f920b076849d9ddcf42d64db25b2ef68be76c4b5",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T02:35:27.000Z",
       "message": "feat: se agrego formateo a dos decimales y con Bs",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/f920b076849d9ddcf42d64db25b2ef68be76c4b5"
     },
     "stats": {
       "total": 24,
@@ -72,6 +72,25 @@
     },
     "coverage": 100,
     "test_count": 3,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T03:05:27.000Z",
+      "message": "feat: calcula tarifa con combinacion de horas nocturna y diurna",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 58,
+      "additions": 47,
+      "deletions": 11,
+      "date": "2025-09-10"
+    },
+    "coverage": 96.15,
+    "test_count": 4,
     "failed_tests": 0,
     "conclusion": "success"
   }

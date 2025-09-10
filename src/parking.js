@@ -5,20 +5,48 @@ function isNight(date) {
   const h = date.getHours();
   return h >= 22 || h < 6;
 }
-function formatBs(amount) {
-  const n = Number(amount);           
-  return `Bs ${n.toFixed(2)}`;
+
+function diffInHours(start, end) {
+  const ms = end - start;
+  return ms / (1000 * 60 * 60);
 }
 
 function calculateFee(entrada, salida) {
-  const ms = salida - entrada;
-  const horas = ms / (1000 * 60 * 60);
-  const horasCobradas = Math.ceil(horas);
+  let total = 0;
 
-  const sameNight = isNight(entrada) && isNight(salida);
-  const rate = sameNight ? NIGHT_RATE : DAY_RATE;
+  // Caso: todo diurno
+  if (!isNight(entrada) && !isNight(salida)) {
+    const horas = diffInHours(entrada, salida);
+    total = Math.ceil(horas) * DAY_RATE;
+    return { total };
+  }
 
-  return { total: horasCobradas * rate };
+  // Caso: todo nocturno
+  if (isNight(entrada) && isNight(salida)) {
+    const horas = diffInHours(entrada, salida);
+    total = Math.ceil(horas) * NIGHT_RATE;
+    return { total };
+  }
+
+  if (!isNight(entrada) && isNight(salida)) {
+    const diurnoFin = new Date(entrada);
+    diurnoFin.setHours(22, 0, 0, 0);
+
+    const horasDia = diffInHours(entrada, diurnoFin);
+    total += Math.ceil(horasDia) * DAY_RATE;
+
+    const horasNoche = diffInHours(diurnoFin, salida);
+    total += Math.ceil(horasNoche) * NIGHT_RATE;
+
+    return { total };
+  }
+
+  return { total: 0 };
 }
 
-export  {calculateFee,formatBs};
+function formatBs(amount) {
+  const n = Number(amount);
+  return `Bs ${n.toFixed(2)}`;
+}
+
+export { calculateFee, formatBs };
