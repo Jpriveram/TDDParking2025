@@ -1,11 +1,11 @@
 [
   {
-    "sha": "HEAD",
+    "sha": "2616576c42a84ad76b9075077f15414f0414d6dd",
     "author": "Juan Pablo",
     "commit": {
       "date": "2025-09-10T00:43:49.000Z",
       "message": "chore: Se configuro el entorno para empezar a trabajar",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/2616576c42a84ad76b9075077f15414f0414d6dd"
     },
     "stats": {
       "total": 17,
@@ -17,5 +17,24 @@
     "test_count": 1,
     "failed_tests": 0,
     "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T02:08:35.000Z",
+      "message": "feat: calcula precio de 10bs con una hora de uso deparqueo diurno",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 90,
+      "additions": 57,
+      "deletions": 33,
+      "date": "2025-09-10"
+    },
+    "coverage": 0,
+    "test_count": 1,
+    "failed_tests": 1,
+    "conclusion": "failure"
   }
 ]

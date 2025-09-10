@@ -1,15 +1,24 @@
-import sumar from "./sumador";
+import { calculateFee } from './parking.js';
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const entradaEl = document.querySelector('#entrada');
+const salidaEl  = document.querySelector('#salida');
+const calcular  = document.querySelector('#calcular');
+const limpiar   = document.querySelector('#limpiar');
+const resultEl  = document.querySelector('#resultado');
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+calcular?.addEventListener('click', (e) => {
+  e.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  const entrada = new Date(entradaEl.value);
+  const salida  = new Date(salidaEl.value);
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  const { total } = calculateFee(entrada, salida);
+  resultEl.textContent = String(total);
+});
+
+limpiar?.addEventListener('click', (e) => {
+  e.preventDefault();
+  entradaEl.value = '';
+  salidaEl.value  = '';
+  resultEl.textContent = '';
 });
