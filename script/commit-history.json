@@ -133,12 +133,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "b3560c7cb14f7b9ee40e19a5168cb790414b7e13",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T04:01:36.000Z",
       "message": "feat: se agrego el tope de 50 bs",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/b3560c7cb14f7b9ee40e19a5168cb790414b7e13"
     },
     "stats": {
       "total": 101,
@@ -148,6 +148,25 @@
     },
     "coverage": 79.45,
     "test_count": 7,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T04:20:42.000Z",
+      "message": "feat: muestar el desglose completo",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 91,
+      "additions": 55,
+      "deletions": 36,
+      "date": "2025-09-10"
+    },
+    "coverage": 90.79,
+    "test_count": 9,
     "failed_tests": 0,
     "conclusion": "success"
   }

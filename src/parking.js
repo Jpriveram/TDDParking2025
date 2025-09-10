@@ -27,47 +27,35 @@ function calculateSameDaySubtotal(start, end) {
     const h = diffInHours(start, end);
     return Math.ceil(h) * NIGHT_RATE;
   }
-
   if (start >= sixAM && end <= tenPM) {
     const h = diffInHours(start, end);
     return Math.ceil(h) * DAY_RATE;
   }
-
   if (start >= tenPM) {
     const h = diffInHours(start, end);
     return Math.ceil(h) * NIGHT_RATE;
   }
-
   if (start < sixAM && end > sixAM && end <= tenPM) {
     const hNoche = diffInHours(start, sixAM);
     total += Math.ceil(hNoche) * NIGHT_RATE;
-
     const hDia = diffInHours(sixAM, end);
     total += Math.ceil(hDia) * DAY_RATE;
-
     return total;
   }
-
   if (start >= sixAM && start < tenPM && end > tenPM) {
     const hDia = diffInHours(start, tenPM);
     total += Math.ceil(hDia) * DAY_RATE;
-
     const hNoche = diffInHours(tenPM, end);
     total += Math.ceil(hNoche) * NIGHT_RATE;
-
     return total;
   }
-
   if (start < sixAM && end > tenPM) {
     const hNoche1 = diffInHours(start, sixAM);
     total += Math.ceil(hNoche1) * NIGHT_RATE;
-
     const hDia = diffInHours(sixAM, tenPM);
     total += Math.ceil(hDia) * DAY_RATE;
-
     const hNoche2 = diffInHours(tenPM, end);
     total += Math.ceil(hNoche2) * NIGHT_RATE;
-
     return total;
   }
 
@@ -75,8 +63,13 @@ function calculateSameDaySubtotal(start, end) {
   return Math.ceil(h) * DAY_RATE;
 }
 
+function calculateFee(entrada, salida, options = {}) {
+  const { lostTicket = false } = options;
 
-function calculateFee(entrada, salida) {
+  if (lostTicket) {
+    return { total: 80, breakdown: [] };
+  }
+
   let total = 0;
   const breakdown = [];
 
@@ -89,7 +82,6 @@ function calculateFee(entrada, salida) {
     const dateKey = formatDate(entrada);
     const subtotal = calculateSameDaySubtotal(entrada, salida);
     const final = Math.min(subtotal, DAILY_CAP);
-
     const capApplied = subtotal > DAILY_CAP ? DAILY_CAP : 0;
 
     breakdown.push({ date: dateKey, subtotal, capApplied, final });
@@ -98,23 +90,21 @@ function calculateFee(entrada, salida) {
   }
 
   let cursor = new Date(entrada);
-
   while (cursor < salida) {
     const endOfDay = new Date(cursor);
     endOfDay.setHours(23, 59, 59, 999);
 
-    const segmentEnd = (salida <= endOfDay) ? salida : endOfDay;
+    const segmentEnd = salida <= endOfDay ? salida : endOfDay;
 
     const subtotal = calculateSameDaySubtotal(cursor, segmentEnd);
     const final = Math.min(subtotal, DAILY_CAP);
-
     const capApplied = subtotal > DAILY_CAP ? DAILY_CAP : 0;
 
     breakdown.push({
       date: formatDate(cursor),
       subtotal,
       capApplied,
-      final
+      final,
     });
 
     total += final;

@@ -7,6 +7,6 @@ El usuario debe ver un total correcto cuando la estadía cruza medianoche (dos d
 El sistema debe aplicar tope máximo de Bs 50 en un mismo día cuando el cálculo exceda ese monto.
 El usuario debe ver un desglose que muestre subtotal, tope aplicado y monto final por día.
 El usuario debe obtener siempre Bs 80 cuando selecciona “ticket perdido”.
+El usuario debe poder ver el total si se quedo mas de 1 dia.
 El sistema debe mostrar un mensaje de error si la hora de salida es anterior a la de entrada.
-El usuario debe poder limpiar el formulario y reiniciar el resultado.
 El sistema debe mostrar un mensaje de error claro bajo el formulario cuando los datos son inválidos.

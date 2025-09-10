@@ -1,3 +1,4 @@
+// presenter.js
 import { calculateFee, formatBs } from './parking.js';
 
 const entradaEl = document.querySelector('#entrada');
@@ -7,7 +8,7 @@ const limpiar   = document.querySelector('#limpiar');
 const resultEl  = document.querySelector('#resultado');
 const desgloseEl = document.querySelector('#desglose');
 
-function renderBreakdown(list) {
+function renderBreakdown(list, grandTotal) {
   if (!desgloseEl) return;
 
   if (!Array.isArray(list) || list.length === 0) {
@@ -15,18 +16,14 @@ function renderBreakdown(list) {
     return;
   }
 
-  // Tabla simple
-  const rows = list.map(item => {
-    const { date, subtotal, capApplied, final } = item;
-    return `
-      <tr>
-        <td>${date}</td>
-        <td>${formatBs(subtotal)}</td>
-        <td>${formatBs(capApplied)}</td>
-        <td>${formatBs(final)}</td>
-      </tr>
-    `;
-  }).join('');
+  const rows = list.map(({ date, subtotal, capApplied, final }) => `
+    <tr>
+      <td>${date}</td>
+      <td>${formatBs(subtotal)}</td>
+      <td>${formatBs(capApplied)}</td>
+      <td>${formatBs(final)}</td>
+    </tr>
+  `).join('');
 
   desgloseEl.innerHTML = `
     <h2>Desglose por día</h2>
@@ -39,9 +36,13 @@ function renderBreakdown(list) {
           <th>Final</th>
         </tr>
       </thead>
-      <tbody>
-        ${rows}
-      </tbody>
+      <tbody>${rows}</tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3" style="text-align:right;">Total</th>
+          <th>${formatBs(grandTotal)}</th>
+        </tr>
+      </tfoot>
     </table>
   `;
 }
@@ -53,8 +54,14 @@ calcular?.addEventListener('click', (e) => {
   const salida  = new Date(salidaEl.value);
 
   const { total, breakdown } = calculateFee(entrada, salida);
+
   resultEl.textContent = formatBs(total);
-  renderBreakdown(breakdown);
+
+  const computedTotal = Array.isArray(breakdown)
+    ? breakdown.reduce((acc, d) => acc + (d.final || 0), 0)
+    : total;
+
+  renderBreakdown(breakdown, computedTotal);
 });
 
 limpiar?.addEventListener('click', (e) => {

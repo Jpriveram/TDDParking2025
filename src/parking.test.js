@@ -60,7 +60,23 @@ describe('parking fee', () => {
   ]);
   });
 
+it('debería devolver 80 cuando se marca ticket perdido (ignora horas)', () => {
+  const entrada = new Date('2000-01-01T10:00:00');
+  const salida  = new Date('2000-01-01T22:00:00');
 
+  const result = calculateFee(entrada, salida, { lostTicket: true });
+
+  expect(result.total).toBe(80);
+  });
+
+  it('debería devolver 256 cuando la estadía abarca varios días con topes diarios', () => {
+  const entrada = new Date('2025-10-09T10:00:00');
+  const salida  = new Date('2025-10-14T01:00:00');
+
+  const result = calculateFee(entrada, salida);
+
+  expect(result.total).toBe(256);
+  });
 
 
 
