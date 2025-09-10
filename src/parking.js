@@ -7,9 +7,11 @@ function diffInHours(start, end) {
   return ms / (1000 * 60 * 60);
 }
 
-function isNight(date) {
-  const h = date.getHours();
-  return h >= 22 || h < 6;
+function formatDate(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 function calculateSameDaySubtotal(start, end) {
@@ -46,7 +48,6 @@ function calculateSameDaySubtotal(start, end) {
     return total;
   }
 
-  // Cruza 22:00 → día a noche
   if (start >= sixAM && start < tenPM && end > tenPM) {
     const hDia = diffInHours(start, tenPM);
     total += Math.ceil(hDia) * DAY_RATE;
@@ -74,8 +75,10 @@ function calculateSameDaySubtotal(start, end) {
   return Math.ceil(h) * DAY_RATE;
 }
 
+
 function calculateFee(entrada, salida) {
   let total = 0;
+  const breakdown = [];
 
   const sameDay =
     entrada.getFullYear() === salida.getFullYear() &&
@@ -83,9 +86,15 @@ function calculateFee(entrada, salida) {
     entrada.getDate() === salida.getDate();
 
   if (sameDay) {
+    const dateKey = formatDate(entrada);
     const subtotal = calculateSameDaySubtotal(entrada, salida);
-    total = Math.min(subtotal, DAILY_CAP); 
-    return { total };
+    const final = Math.min(subtotal, DAILY_CAP);
+
+    const capApplied = subtotal > DAILY_CAP ? DAILY_CAP : 0;
+
+    breakdown.push({ date: dateKey, subtotal, capApplied, final });
+    total = final;
+    return { total, breakdown };
   }
 
   let cursor = new Date(entrada);
@@ -97,7 +106,18 @@ function calculateFee(entrada, salida) {
     const segmentEnd = (salida <= endOfDay) ? salida : endOfDay;
 
     const subtotal = calculateSameDaySubtotal(cursor, segmentEnd);
-    total += Math.min(subtotal, DAILY_CAP); 
+    const final = Math.min(subtotal, DAILY_CAP);
+
+    const capApplied = subtotal > DAILY_CAP ? DAILY_CAP : 0;
+
+    breakdown.push({
+      date: formatDate(cursor),
+      subtotal,
+      capApplied,
+      final
+    });
+
+    total += final;
 
     const nextDay = new Date(cursor);
     nextDay.setDate(cursor.getDate() + 1);
@@ -105,7 +125,7 @@ function calculateFee(entrada, salida) {
     cursor = nextDay;
   }
 
-  return { total };
+  return { total, breakdown };
 }
 
 function formatBs(amount) {

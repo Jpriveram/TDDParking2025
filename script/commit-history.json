@@ -114,12 +114,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "73367836612d54c57a081880c649ff83ff3bb690",
     "author": "Juan Pablo Rivera Mercado",
     "commit": {
       "date": "2025-09-10T03:34:10.000Z",
       "message": "feat: se implemento el tope diario de 50 Bs",
-      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/73367836612d54c57a081880c649ff83ff3bb690"
     },
     "stats": {
       "total": 37,
@@ -129,6 +129,25 @@
     },
     "coverage": 73.02,
     "test_count": 6,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Juan Pablo Rivera Mercado",
+    "commit": {
+      "date": "2025-09-10T04:01:36.000Z",
+      "message": "feat: se agrego el tope de 50 bs",
+      "url": "https://github.com/Jpriveram/TDDParking2025/commit/HEAD"
+    },
+    "stats": {
+      "total": 101,
+      "additions": 89,
+      "deletions": 12,
+      "date": "2025-09-10"
+    },
+    "coverage": 79.45,
+    "test_count": 7,
     "failed_tests": 0,
     "conclusion": "success"
   }

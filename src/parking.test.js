@@ -48,6 +48,20 @@ describe('parking fee', () => {
   expect(result.total).toBe(50);
   });
 
+  it('debería incluir breakdown por día cuando cruza medianoche', () => {
+  const entrada = new Date('2000-01-01T10:00:00');
+  const salida  = new Date('2000-01-02T01:00:00');
+
+  const result = calculateFee(entrada, salida);
+
+  expect(result.breakdown).toEqual([
+    { date: '2000-01-01', subtotal: 132, capApplied: 50, final: 50 },
+    { date: '2000-01-02', subtotal: 6,   capApplied: 0,  final: 6  },
+  ]);
+  });
+
+
+
 
 
 });
